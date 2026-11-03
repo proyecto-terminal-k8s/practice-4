@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculadora-backend
+  namespace: practice-4
+  labels:
+    app.kubernetes.io/name: calculadora-backend
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: calculadora-backend
+  ports:
+    - name: http
+      port: 8080
+      targetPort: http
