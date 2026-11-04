@@ -15,14 +15,17 @@ En producción debe existir cifrado, control de acceso y un gestor de secretos e
 - `calculadora-backend.yaml`: despliega dos réplicas del backend.
 - `calculadora-service.yaml`: Service `ClusterIP` del backend.
 
-Publica primero la imagen del backend:
+Carga la imagen local del backend en Minikube:
 
 ```bash
 cd ../calculadora-backend
-docker build -t tu-registro/calculadora-backend:latest .
-docker push tu-registro/calculadora-backend:latest
+docker build -t calculadora-backend:latest .
+minikube image load calculadora-backend:latest
 cd ../practice-4
 ```
+
+Para usar un registro externo, publica `tu-registro/calculadora-backend:latest`
+y reemplaza esa imagen en `calculadora-backend.yaml`.
 
 ## Crear y comprobar
 
